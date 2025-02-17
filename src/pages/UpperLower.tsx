@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input, Switch, Row, Col } from 'antd';
+import { Input, Switch, Row, Col, Button } from 'antd';
 
 const { TextArea } = Input;
 
@@ -37,7 +37,7 @@ const UpperLower: React.FC = () => {
           />
         </Col>
         <Col span={24}>
-          <Switch
+        <Switch
             checkedChildren="Upper"
             unCheckedChildren="Lower"
             checked={isUppercase}
