@@ -7,12 +7,13 @@ import {
   CodeSandboxOutlined, MenuUnfoldOutlined, MenuFoldOutlined 
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Button, Layout, Menu, theme, Row, Col } from 'antd';
+import { Button, Layout, Menu, Row, Col } from 'antd';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 
 import UpperLower from './pages/UpperLower';
+import MarkDownEditor from './pages/Markdown';
 
-const { Header, Content, Sider } = Layout;
+const { Header, Content, Sider,Footer } = Layout;
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -32,10 +33,7 @@ function getItem(
 
 const items: MenuItem[] = [
   getItem('Formatting', 'sub1', <FontSizeOutlined />, [
-    getItem('Uppercase & Lowercase', 'UpperLower', <FontSizeOutlined />),
-    getItem('Reverse Text', '2', <SyncOutlined />),
-    getItem('Character & Word Counter', '3', <NumberOutlined />),
-    getItem('Remove Extra Spaces', '4', <ScissorOutlined />),
+    getItem('Text Formatter', 'TextFormatter', <FontSizeOutlined />),
   ]),
   getItem('Search & Replace', 'sub2', <SearchOutlined />, [
     getItem('Find & Replace', '5', <SearchOutlined />),
@@ -55,14 +53,13 @@ const items: MenuItem[] = [
   getItem('Developer Tools', 'sub5', <CodeSandboxOutlined />, [
     getItem('JSON Formatter', '14', <CodeSandboxOutlined />),
     getItem('XML Formatter', '15', <CodeSandboxOutlined />),
+    getItem('MarkDown Editor', 'MarkDownEditor', <CodeSandboxOutlined />)
   ]),
 ];
 
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
+  const colorBgContainer = "hsv(0, 0%, 40%)";
   const navigate = useNavigate();
 
   const onMenuClick: MenuProps['onClick'] = (e) => {
@@ -75,8 +72,9 @@ const App: React.FC = () => {
         <div className="demo-logo-vertical" />
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} onClick={onMenuClick} />
       </Sider>
-      <Layout style={{ minHeight: '100vh', minWidth: '65vw', backgroundColor: colorBgContainer }}>
-        <Header style={{ padding: 0, borderRadius: borderRadiusLG, backgroundColor: colorBgContainer }}>
+      <Layout style={{ minHeight: '100vh', backgroundColor: colorBgContainer }}>
+
+        <Header style={{ padding: 0, backgroundColor: 'white'  }}>
           <Button
             type="text"
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
@@ -88,15 +86,13 @@ const App: React.FC = () => {
             }}
           />
         </Header>
+
         <Content style={{ margin: '14px', backgroundColor: colorBgContainer }}>
           <Row style={{ width: '100%' }}>
             <Col span={24}>
               <Routes>
-                <Route path="/UpperLower" element={<UpperLower />} />
-                <Route path="/2" element={<div>Reverse Text</div>} />
-                <Route path="/3" element={<div>Character & Word Counter</div>} />
-                <Route path="/4" element={<div>Remove Extra Spaces</div>} />
-                <Route path="/5" element={<div>Find & Replace</div>} />
+                <Route path="/TextFormatter" element={<UpperLower />} />
+                <Route path="/MarkDownEditor" element={<MarkDownEditor/>} />
                 <Route path="/6" element={<div>Copy to Clipboard</div>} />
                 <Route path="/7" element={<div>Slug Generator</div>} />
                 <Route path="/8" element={<div>Base64 Encode/Decode</div>} />
@@ -111,6 +107,9 @@ const App: React.FC = () => {
             </Col>
           </Row>
         </Content>
+
+        <Footer style={{ padding: 0, backgroundColor: 'white'  }}></Footer>
+
       </Layout>
     </Layout>
   );
