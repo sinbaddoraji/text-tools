@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/4a9340b5-78fa-4605-82ab-2bcb1f3c8573)
+![image](https://github.com/user-attachments/assets/a3435825-577e-414d-93ed-a7da26deceac)
 
 A small web app with a couple of useful tools for manipulating text. 
 
