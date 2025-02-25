@@ -33,6 +33,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .ant-layout-sider {
+    display: none;
+  }
+}
+
 .card {
   padding: 2em;
 }

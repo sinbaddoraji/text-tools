@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { 
-  FontSizeOutlined, SyncOutlined, NumberOutlined, ScissorOutlined, 
-  SearchOutlined, CopyOutlined, TagsOutlined, 
+  FontSizeOutlined, TagsOutlined, 
   CodeOutlined, LinkOutlined, LockOutlined, 
   RetweetOutlined, RedoOutlined, SoundOutlined, 
   CodeSandboxOutlined, MenuUnfoldOutlined, MenuFoldOutlined 
@@ -12,6 +11,15 @@ import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-route
 
 import UpperLower from './pages/UpperLower';
 import MarkDownEditor from './pages/Markdown';
+import SlugGenerator from './pages/SlugGenerator';
+import Base64Encoder from './pages/Base64Encoder';
+import JSONFormatter from './pages/JsonFormatter';
+import XmlFormatter from './pages/XmlFormatter';
+import TextToSpeech from './pages/TextToSpeech';
+import PalindromeChecker from './pages/PalindromeChecker';
+import RandomStringGenerator from './pages/RandomStringGenerator';
+import HashGenerator from './pages/HashGenerator';
+import URLEncoderDecoder from './pages/UrlEncoder';
 
 const { Header, Content, Sider,Footer } = Layout;
 
@@ -33,26 +41,22 @@ function getItem(
 
 const items: MenuItem[] = [
   getItem('Formatting', 'sub1', <FontSizeOutlined />, [
-    getItem('Text Formatter', 'TextFormatter', <FontSizeOutlined />),
-  ]),
-  getItem('Search & Replace', 'sub2', <SearchOutlined />, [
-    getItem('Find & Replace', '5', <SearchOutlined />),
-    getItem('Copy to Clipboard', '6', <CopyOutlined />),
-    getItem('Slug Generator', '7', <TagsOutlined />),
+    getItem('Text Formatter', '', <FontSizeOutlined />),
+    getItem('Slug Generator', 'SlugGenerator', <TagsOutlined />),
   ]),
   getItem('Encoding & Security', 'sub3', <LockOutlined />, [
-    getItem('Base64 Encode/Decode', '8', <CodeOutlined />),
-    getItem('URL Encoder/Decoder', '9', <LinkOutlined />),
-    getItem('Hash Generator', '10', <LockOutlined />),
+    getItem('Base64 Encode/Decode', 'Base64Encode', <CodeOutlined />),
+    getItem('URL Encoder/Decoder', 'UrlEncoder', <LinkOutlined />),
+    getItem('Hash Generator', 'HashGenerator', <LockOutlined />),
   ]),
   getItem('Fun & Validation', 'sub4', <RetweetOutlined />, [
-    getItem('Random String Generator', '11', <RetweetOutlined />),
-    getItem('Palindrome Checker', '12', <RedoOutlined />),
-    getItem('Text-to-Speech', '13', <SoundOutlined />),
+    getItem('Random String Generator', 'RandomStringGenerator', <RetweetOutlined />),
+    getItem('Palindrome Checker', 'PalindromeChecker', <RedoOutlined />),
+    getItem('Text-to-Speech', 'TextToSpeech', <SoundOutlined />),
   ]),
   getItem('Developer Tools', 'sub5', <CodeSandboxOutlined />, [
-    getItem('JSON Formatter', '14', <CodeSandboxOutlined />),
-    getItem('XML Formatter', '15', <CodeSandboxOutlined />),
+    getItem('JSON Formatter', 'JsonFormatter', <CodeSandboxOutlined />),
+    getItem('XML Formatter', 'XmlFormatter', <CodeSandboxOutlined />),
     getItem('MarkDown Editor', 'MarkDownEditor', <CodeSandboxOutlined />)
   ]),
 ];
@@ -91,18 +95,18 @@ const App: React.FC = () => {
           <Row style={{ width: '100%' }}>
             <Col span={24}>
               <Routes>
-                <Route path="/TextFormatter" element={<UpperLower />} />
+                <Route path="/" element={<UpperLower />} />
                 <Route path="/MarkDownEditor" element={<MarkDownEditor/>} />
-                <Route path="/6" element={<div>Copy to Clipboard</div>} />
-                <Route path="/7" element={<div>Slug Generator</div>} />
-                <Route path="/8" element={<div>Base64 Encode/Decode</div>} />
-                <Route path="/9" element={<div>URL Encoder/Decoder</div>} />
-                <Route path="/10" element={<div>Hash Generator</div>} />
-                <Route path="/11" element={<div>Random String Generator</div>} />
-                <Route path="/12" element={<div>Palindrome Checker</div>} />
-                <Route path="/13" element={<div>Text-to-Speech</div>} />
-                <Route path="/14" element={<div>JSON Formatter</div>} />
-                <Route path="/15" element={<div>XML Formatter</div>} />
+                <Route path="/SlugGenerator" element={<SlugGenerator/>} />
+                <Route path="/Base64Encode" element={<Base64Encoder/>} />
+                <Route path="/UrlEncoder" element={<URLEncoderDecoder/>} />
+                <Route path="/HashGenerator" element={<HashGenerator/>} />
+                <Route path="/RandomStringGenerator" element={<RandomStringGenerator/>} />
+                <Route path="/PalindromeChecker" element={<PalindromeChecker/>} />
+                <Route path="/TextToSpeech" element={<TextToSpeech/>} />
+                <Route path="/JsonFormatter" element={<JSONFormatter/>} />
+                <Route path="/XmlFormatter" element={<XmlFormatter/>} />
+                <Route path="*" element={<p>Not found</p>} />
               </Routes>
             </Col>
           </Row>

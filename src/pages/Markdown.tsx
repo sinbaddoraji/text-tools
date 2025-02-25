@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import MDEditor, { commands, help } from "@uiw/react-md-editor";
 
 const mkdStr = `## Markdown Editor`;
@@ -12,7 +12,7 @@ const MarkDownEditor: React.FC = () => {
                     height={400}
                     commands={[...commands.getCommands(), help]}
                     value={value}
-                    onChange={(value) => setValue(value || '')}
+                    onChange={(value) => setValue(value ?? '')}
                 />
         </div>
       

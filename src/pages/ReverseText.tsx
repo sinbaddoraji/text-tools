@@ -33,7 +33,7 @@ const ReverseText: React.FC = () => {
             value={text}
             onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setText(e.target.value)}
             placeholder="Enter your text here"
-            style={{ width: '100%', height: '60vh' }}
+            style={{ width: '80%', height: '60vh' }}
           />
         </Col>
         <Col span={24}>
