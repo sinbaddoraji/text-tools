@@ -1,38 +1,323 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #ffffff;
-
+  
+  --primary-color: #1890ff;
+  --primary-hover: #40a9ff;
+  --secondary-color: #52c41a;
+  --danger-color: #ff4d4f;
+  --warning-color: #faad14;
+  --text-primary: #262626;
+  --text-secondary: #8c8c8c;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #fafafa;
+  --border-color: #e8e8e8;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition);
 }
+
 a:hover {
-  color: #535bf2;
+  color: var(--primary-hover);
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  padding: 0;
   min-width: 320px;
   min-height: 100vh;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+.ant-layout {
+  background: var(--bg-secondary) !important;
+}
+
+.ant-layout-sider {
+  box-shadow: var(--shadow-md);
+}
+
+.ant-layout-header {
+  background: var(--bg-primary) !important;
+  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.ant-layout-content {
+  padding: 24px;
+}
+
+.ant-menu-dark {
+  background: #001529 !important;
+}
+
+.ant-menu-dark .ant-menu-sub {
+  background: #000c17 !important;
+}
+
+.tool-container {
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  min-height: calc(100vh - 200px);
+}
+
+.page-wrapper {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.page-title {
+  margin-bottom: 16px !important;
+  font-size: 32px !important;
+  font-weight: 700 !important;
+}
+
+.page-description {
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 0 !important;
+  max-width: 600px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.page-content {
+  width: 100%;
+}
+
+.tool-section {
+  margin-bottom: 32px;
+}
+
+.tool-section:last-child {
+  margin-bottom: 0;
+}
+
+.ant-btn {
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.ant-btn-primary {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.ant-btn-primary:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+.ant-input, .ant-input-affix-wrapper {
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.ant-input:hover, .ant-input-affix-wrapper:hover {
+  border-color: var(--primary-color);
+}
+
+.ant-input:focus, .ant-input-affix-wrapper-focused {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+textarea.ant-input {
+  resize: vertical;
+}
+
+.result-section {
+  margin-top: 24px;
+  padding: 24px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.copy
+{
+  right: 8px;
+}
+
+/* Button spacing improvements */
+.ant-space {
+  gap: 16px !important;
+}
+
+.ant-space-large {
+  gap: 24px !important;
+}
+
+.ant-space-small {
+  gap: 12px !important;
+}
+
+.ant-space-item {
+  margin-right: 16px !important;
+}
+
+.ant-space-item:last-child {
+  margin-right: 0 !important;
+}
+
+/* Inline button groups */
+.inline-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.inline-buttons .ant-btn {
+  margin: 0 !important;
+}
+
+/* Card action buttons */
+.ant-card-actions {
+  padding: 16px 24px !important;
+}
+
+.ant-card-actions > li {
+  margin: 0 8px !important;
+}
+
+/* Form button groups */
+.form-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-start;
+  margin-top: 24px;
+}
+
+.form-buttons .ant-btn {
+  margin: 0 !important;
+}
+
+/* Table action buttons */
+.table-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.table-actions .ant-btn {
+  margin: 0 !important;
+}
+
+/* Button groups in sections */
+.section-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.section-buttons .ant-btn {
+  margin: 0 !important;
+}
+
+/* Radio button groups */
+.ant-radio-group {
+  gap: 16px !important;
+}
+
+.ant-radio-button-wrapper {
+  margin-right: 0 !important;
+}
+
+/* Switch groups */
+.ant-space .ant-switch {
+  margin-right: 8px !important;
+}
+
+/* Button groups in tool sections */
+.tool-section .ant-space {
+  gap: 20px !important;
+}
+
+@media (max-width: 768px) {
+  .ant-layout-content {
+    padding: 16px;
+  }
+  
+  .tool-container {
+    padding: 24px 16px;
+  }
+  
+  .action-buttons {
+    gap: 16px;
+  }
+  
+  .inline-buttons {
+    gap: 12px;
+  }
+  
+  .section-buttons {
+    gap: 8px;
+  }
 }
 
 
