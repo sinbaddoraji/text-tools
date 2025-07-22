@@ -83,6 +83,7 @@ const Base64Encoder: React.FC = () => {
               icon={<LockOutlined />}
               onClick={handleEncode}
               disabled={!input}
+              className="btn"
             >
               Encode
             </Button>
@@ -91,6 +92,7 @@ const Base64Encoder: React.FC = () => {
               icon={<UnlockOutlined />}
               onClick={handleDecode}
               disabled={!input}
+              className="btn"
             >
               Decode
             </Button>
@@ -100,6 +102,7 @@ const Base64Encoder: React.FC = () => {
               icon={<CopyOutlined />}
               onClick={handleCopy}
               disabled={!output}
+              className="btn"
             >
               Copy Result
             </Button>
@@ -109,6 +112,7 @@ const Base64Encoder: React.FC = () => {
               icon={<ClearOutlined />}
               onClick={handleClear}
               disabled={!input && !output}
+              className="btn"
             >
               Clear
             </Button>

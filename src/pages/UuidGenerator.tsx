@@ -230,6 +230,7 @@ const UuidGenerator: React.FC = () => {
               size="large"
               icon={<ReloadOutlined />}
               onClick={handleGenerate}
+              className="btn"
             >
               Generate Single
             </Button>
@@ -237,6 +238,7 @@ const UuidGenerator: React.FC = () => {
               size="large"
               icon={<PlusOutlined />}
               onClick={handleGenerateMultiple}
+              className="btn"
             >
               Generate {quantity}
             </Button>
@@ -246,6 +248,7 @@ const UuidGenerator: React.FC = () => {
               icon={<CopyOutlined />}
               onClick={handleCopyAll}
               disabled={uuidList.length === 0}
+              className="btn"
             >
               Copy All ({uuidList.length})
             </Button>
@@ -255,6 +258,7 @@ const UuidGenerator: React.FC = () => {
               icon={<ClearOutlined />}
               onClick={handleClear}
               disabled={!currentUuid && uuidList.length === 0}
+              className="btn"
             >
               Clear All
             </Button>

@@ -197,6 +197,7 @@ const TextToSpeech: React.FC = () => {
                 icon={<PlayCircleOutlined />}
                 onClick={handleSpeak}
                 disabled={!text}
+                className="btn"
               >
                 Speak
               </Button>
@@ -206,6 +207,7 @@ const TextToSpeech: React.FC = () => {
                   size="large"
                   icon={<PauseCircleOutlined />}
                   onClick={handlePauseResume}
+                  className="btn"
                 >
                   {isPaused ? 'Resume' : 'Pause'}
                 </Button>
@@ -214,6 +216,7 @@ const TextToSpeech: React.FC = () => {
                   danger
                   icon={<SoundOutlined />}
                   onClick={handleStop}
+                  className="btn"
                 >
                   Stop
                 </Button>
@@ -225,6 +228,7 @@ const TextToSpeech: React.FC = () => {
               icon={<ClearOutlined />}
               onClick={handleClear}
               disabled={!text}
+              className="btn"
             >
               Clear
             </Button>

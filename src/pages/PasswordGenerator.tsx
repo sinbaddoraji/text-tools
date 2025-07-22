@@ -301,6 +301,7 @@ const PasswordGenerator: React.FC = () => {
               size="large"
               icon={<ReloadOutlined />}
               onClick={generatePassword}
+              className="btn"
             >
               Generate New
             </Button>
@@ -310,6 +311,7 @@ const PasswordGenerator: React.FC = () => {
               icon={<CopyOutlined />}
               onClick={handleCopy}
               disabled={!password}
+              className="btn"
             >
               Copy Password
             </Button>
@@ -319,6 +321,7 @@ const PasswordGenerator: React.FC = () => {
               icon={<ClearOutlined />}
               onClick={handleClear}
               disabled={!password}
+              className="btn"
             >
               Clear
             </Button>

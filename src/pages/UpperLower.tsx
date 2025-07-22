@@ -138,6 +138,7 @@ const UpperLower: React.FC = () => {
               icon={<FontSizeOutlined />}
               onClick={handleUppercase}
               disabled={!text}
+              className="btn"
             >
               UPPERCASE
             </Button>
@@ -146,6 +147,7 @@ const UpperLower: React.FC = () => {
               icon={<FontSizeOutlined />}
               onClick={handleLowercase}
               disabled={!text}
+              className="btn"
             >
               lowercase
             </Button>
@@ -154,6 +156,7 @@ const UpperLower: React.FC = () => {
               icon={<FontSizeOutlined />}
               onClick={handleCapitalize}
               disabled={!text}
+              className="btn"
             >
               Capitalize Words
             </Button>
@@ -162,6 +165,7 @@ const UpperLower: React.FC = () => {
               icon={<SwapOutlined />}
               onClick={handleAlternating}
               disabled={!text}
+              className="btn"
             >
               aLtErNaTiNg
             </Button>
@@ -170,6 +174,7 @@ const UpperLower: React.FC = () => {
               icon={<SwapOutlined />}
               onClick={handleInvertCase}
               disabled={!text}
+              className="btn"
             >
               iNVERT cASE
             </Button>
@@ -178,6 +183,7 @@ const UpperLower: React.FC = () => {
               icon={<RetweetOutlined />}
               onClick={handleReverse}
               disabled={!text}
+              className="btn"
             >
               Reverse
             </Button>
@@ -186,6 +192,7 @@ const UpperLower: React.FC = () => {
               icon={<ScissorOutlined />}
               onClick={handleTrim}
               disabled={!text}
+              className="btn"
             >
               Trim Spaces
             </Button>
@@ -195,6 +202,7 @@ const UpperLower: React.FC = () => {
               icon={<CopyOutlined />}
               onClick={handleCopy}
               disabled={!text}
+              className="btn"
             >
               Copy
             </Button>
@@ -204,6 +212,7 @@ const UpperLower: React.FC = () => {
               icon={<ClearOutlined />}
               onClick={handleClear}
               disabled={!text}
+              className="btn"
             >
               Clear
             </Button>

@@ -89,6 +89,7 @@ const PalindromeChecker: React.FC = () => {
               icon={<SearchOutlined />}
               onClick={checkPalindrome}
               disabled={!text}
+              className="btn"
             >
               Check Palindrome
             </Button>
@@ -98,6 +99,7 @@ const PalindromeChecker: React.FC = () => {
               icon={<ClearOutlined />}
               onClick={handleClear}
               disabled={!text}
+              className="btn"
             >
               Clear
             </Button>

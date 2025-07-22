@@ -202,6 +202,7 @@ const XMLFormatter: React.FC = () => {
               icon={<FormatPainterOutlined />}
               onClick={handleFormat}
               disabled={!input}
+              className="btn"
             >
               Format
             </Button>
@@ -210,6 +211,7 @@ const XMLFormatter: React.FC = () => {
               icon={<CompressOutlined />}
               onClick={handleMinify}
               disabled={!input}
+              className="btn"
             >
               Minify
             </Button>
@@ -219,6 +221,7 @@ const XMLFormatter: React.FC = () => {
               icon={<CopyOutlined />}
               onClick={handleCopy}
               disabled={!input && !formatted}
+              className="btn"
             >
               Copy
             </Button>
@@ -228,6 +231,7 @@ const XMLFormatter: React.FC = () => {
               icon={<ClearOutlined />}
               onClick={handleClear}
               disabled={!input && !formatted}
+              className="btn"
             >
               Clear
             </Button>

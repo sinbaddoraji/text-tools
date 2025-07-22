@@ -465,6 +465,7 @@ settings:
               size="large"
               icon={<FormatPainterOutlined />}
               onClick={validateAndConvert}
+              className="btn"
             >
               {mode === 'format-yaml' ? 'Format' : 'Convert'}
             </Button>
@@ -477,6 +478,7 @@ settings:
                 handleCopy(output);
               }}
               disabled={!(yamlOutput || jsonOutput)}
+              className="btn"
             >
               Copy Output
             </Button>
@@ -486,6 +488,7 @@ settings:
               icon={<ClearOutlined />}
               onClick={handleClear}
               disabled={!yamlInput && !jsonOutput}
+              className="btn"
             >
               Clear
             </Button>

@@ -145,6 +145,7 @@ const RandomStringGenerator: React.FC = () => {
               size="large"
               icon={<ReloadOutlined />}
               onClick={generateRandomString}
+              className="btn"
             >
               Generate String
             </Button>
@@ -152,6 +153,7 @@ const RandomStringGenerator: React.FC = () => {
               size="large"
               icon={<SettingOutlined />}
               onClick={() => generateMultiple(5)}
+              className="btn"
             >
               Generate 5 Strings
             </Button>
@@ -161,6 +163,7 @@ const RandomStringGenerator: React.FC = () => {
               icon={<CopyOutlined />}
               onClick={handleCopy}
               disabled={!randomString}
+              className="btn"
             >
               Copy
             </Button>

@@ -137,6 +137,7 @@ const ReverseText: React.FC = () => {
               icon={<SwapOutlined />}
               onClick={handleReverse}
               disabled={!input}
+              className="btn"
             >
               Reverse Text
             </Button>
@@ -146,6 +147,7 @@ const ReverseText: React.FC = () => {
               icon={<CopyOutlined />}
               onClick={handleCopy}
               disabled={!output}
+              className="btn"
             >
               Copy Result
             </Button>
@@ -155,6 +157,7 @@ const ReverseText: React.FC = () => {
               icon={<ClearOutlined />}
               onClick={handleClear}
               disabled={!input && !output}
+              className="btn"
             >
               Clear
             </Button>

@@ -89,6 +89,7 @@ const HashGenerator: React.FC = () => {
               icon={<SecurityScanOutlined />}
               onClick={handleGenerate}
               disabled={!input}
+              className="btn"
             >
               Generate Hash
             </Button>
@@ -98,6 +99,7 @@ const HashGenerator: React.FC = () => {
               icon={<ClearOutlined />}
               onClick={handleClear}
               disabled={!input && !hash}
+              className="btn"
             >
               Clear
             </Button>

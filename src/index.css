@@ -74,6 +74,21 @@ h3 {
   line-height: 1.4;
 }
 
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 5px;
+}
+
+.btn:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+Button{
+  margin: 10;
+}
+
 .ant-layout {
   background: var(--bg-secondary) !important;
 }

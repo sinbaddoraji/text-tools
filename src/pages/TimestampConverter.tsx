@@ -276,6 +276,7 @@ const TimestampConverter: React.FC = () => {
               size="large"
               icon={<ClockCircleOutlined />}
               onClick={handleNow}
+              className="btn"
             >
               Current Time
             </Button>
@@ -285,6 +286,7 @@ const TimestampConverter: React.FC = () => {
               icon={<ClearOutlined />}
               onClick={handleClear}
               disabled={!timestamp}
+              className="btn"
             >
               Clear
             </Button>

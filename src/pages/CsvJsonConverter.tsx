@@ -362,6 +362,7 @@ Bob Johnson,35,Chicago,bob@example.com`;
               size="large"
               icon={<SwapOutlined />}
               onClick={handleConvert}
+              className="btn"
             >
               Convert
             </Button>
@@ -369,6 +370,7 @@ Bob Johnson,35,Chicago,bob@example.com`;
               size="large"
               icon={<SwapOutlined />}
               onClick={() => setConvertMode(convertMode === 'csv-to-json' ? 'json-to-csv' : 'csv-to-json')}
+              className="btn"
             >
               Switch Mode
             </Button>
@@ -378,6 +380,7 @@ Bob Johnson,35,Chicago,bob@example.com`;
               icon={<ClearOutlined />}
               onClick={handleClear}
               disabled={!csvData && !jsonData}
+              className="btn"
             >
               Clear
             </Button>

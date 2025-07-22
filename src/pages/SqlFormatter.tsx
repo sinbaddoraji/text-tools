@@ -327,6 +327,7 @@ const SqlFormatter: React.FC = () => {
               icon={<FormatPainterOutlined />}
               onClick={handleFormat}
               disabled={!sqlInput.trim()}
+              className="btn"
             >
               Format SQL
             </Button>
@@ -335,6 +336,7 @@ const SqlFormatter: React.FC = () => {
               icon={<CompressOutlined />}
               onClick={handleMinify}
               disabled={!sqlInput.trim()}
+              className="btn"
             >
               Minify SQL
             </Button>
@@ -344,6 +346,7 @@ const SqlFormatter: React.FC = () => {
               icon={<CopyOutlined />}
               onClick={handleCopy}
               disabled={!sqlOutput}
+              className="btn"
             >
               Copy Output
             </Button>
@@ -353,6 +356,7 @@ const SqlFormatter: React.FC = () => {
               icon={<ClearOutlined />}
               onClick={handleClear}
               disabled={!sqlInput && !sqlOutput}
+              className="btn"
             >
               Clear
             </Button>

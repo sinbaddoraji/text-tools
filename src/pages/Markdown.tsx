@@ -96,6 +96,7 @@ const MarkDownEditor: React.FC = () => {
                             icon={<CopyOutlined />}
                             onClick={handleCopy}
                             disabled={!value}
+                            className="btn"
                         >
                             Copy Markdown
                         </Button>
@@ -104,6 +105,7 @@ const MarkDownEditor: React.FC = () => {
                             icon={<DownloadOutlined />}
                             onClick={handleDownload}
                             disabled={!value}
+                            className="btn"
                         >
                             Download .md
                         </Button>
@@ -113,6 +115,7 @@ const MarkDownEditor: React.FC = () => {
                             icon={<ClearOutlined />}
                             onClick={handleClear}
                             disabled={!value}
+                            className="btn"
                         >
                             Clear
                         </Button>

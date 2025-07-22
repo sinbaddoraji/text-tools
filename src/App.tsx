@@ -157,17 +157,6 @@ const App: React.FC = () => {
         <Header>
           <Space size="large" style={{ width: '100%', justifyContent: 'space-between' }}>
             <Space>
-              <Button
-                type="text"
-                icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-                onClick={() => setCollapsed(!collapsed)}
-                className="mobile-menu-trigger"
-                style={{
-                  fontSize: '16px',
-                  width: 64,
-                  height: 64,
-                }}
-              />
               <Title level={3} style={{ margin: 0 }}>
                 {getPageTitle()}
               </Title>

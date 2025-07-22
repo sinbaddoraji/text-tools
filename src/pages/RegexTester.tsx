@@ -286,6 +286,7 @@ const RegexTester: React.FC = () => {
               icon={<PlayCircleOutlined />}
               onClick={testRegex}
               disabled={!pattern}
+              className="btn"
             >
               Test Regex
             </Button>
@@ -295,6 +296,7 @@ const RegexTester: React.FC = () => {
               icon={<CopyOutlined />}
               onClick={handleCopyPattern}
               disabled={!pattern}
+              className="btn"
             >
               Copy Pattern
             </Button>
@@ -304,6 +306,7 @@ const RegexTester: React.FC = () => {
               icon={<ClearOutlined />}
               onClick={handleClear}
               disabled={!pattern && !testText}
+              className="btn"
             >
               Clear
             </Button>

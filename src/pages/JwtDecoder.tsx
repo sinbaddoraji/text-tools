@@ -367,6 +367,7 @@ const JwtDecoder: React.FC = () => {
               icon={<CopyOutlined />}
               onClick={() => decoded && handleCopy(JSON.stringify({ header: decoded.header, payload: decoded.payload }, null, 2))}
               disabled={!decoded}
+              className="btn"
             >
               Copy Decoded
             </Button>
@@ -376,6 +377,7 @@ const JwtDecoder: React.FC = () => {
               icon={<ClearOutlined />}
               onClick={handleClear}
               disabled={!jwtToken}
+              className="btn"
             >
               Clear
             </Button>

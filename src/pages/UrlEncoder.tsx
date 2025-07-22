@@ -160,6 +160,7 @@ const URLEncoderDecoder: React.FC = () => {
               icon={mode === 'encode' ? <LinkOutlined /> : <UnlockOutlined />}
               onClick={handleProcess}
               disabled={!input}
+              className="btn"
             >
               {mode === 'encode' ? 'Encode URL' : 'Decode URL'}
             </Button>
@@ -169,6 +170,7 @@ const URLEncoderDecoder: React.FC = () => {
               icon={<CopyOutlined />}
               onClick={handleCopy}
               disabled={!output}
+              className="btn"
             >
               Copy Result
             </Button>
@@ -178,6 +180,7 @@ const URLEncoderDecoder: React.FC = () => {
               icon={<ClearOutlined />}
               onClick={handleClear}
               disabled={!input && !output}
+              className="btn"
             >
               Clear
             </Button>

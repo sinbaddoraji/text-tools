@@ -12,6 +12,7 @@ import {
   GlobalOutlined
 } from '@ant-design/icons';
 import PageWrapper from '../components/PageWrapper';
+import { QRCodeSVG } from 'qrcode.react';
 
 const { TextArea } = Input;
 const { Option } = Select;
@@ -23,66 +24,7 @@ const QrCodeGenerator: React.FC = () => {
   const [errorLevel, setErrorLevel] = useState<'L' | 'M' | 'Q' | 'H'>('M');
   const [foregroundColor, setForegroundColor] = useState('#000000');
   const [backgroundColor, setBackgroundColor] = useState('#ffffff');
-  const [qrDataUrl, setQrDataUrl] = useState('');
   const [messageApi, contextHolder] = message.useMessage();
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  // Simple QR Code generation using canvas (basic implementation)
-  const generateQR = (data: string, size: number, fgColor: string, bgColor: string): string => {
-    const canvas = canvasRef.current;
-    if (!canvas) return '';
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return '';
-
-    // Set canvas size
-    canvas.width = size;
-    canvas.height = size;
-
-    // Clear canvas with background color
-    ctx.fillStyle = bgColor;
-    ctx.fillRect(0, 0, size, size);
-
-    // Generate a simple pattern based on data (this is a simplified QR-like pattern)
-    const moduleSize = size / 25; // 25x25 grid
-    ctx.fillStyle = fgColor;
-
-    // Create a hash of the data to generate consistent patterns
-    let hash = 0;
-    for (let i = 0; i < data.length; i++) {
-      const char = data.charCodeAt(i);
-      hash = ((hash << 5) - hash) + char;
-      hash = hash & hash; // Convert to 32-bit integer
-    }
-
-    // Generate pattern based on hash
-    for (let row = 0; row < 25; row++) {
-      for (let col = 0; col < 25; col++) {
-        const index = row * 25 + col;
-        const shouldFill = (hash + index * 7) % 3 === 0;
-        
-        // Add finder patterns (corners)
-        const isFinderPattern = 
-          (row < 7 && col < 7) || 
-          (row < 7 && col > 17) || 
-          (row > 17 && col < 7);
-        
-        if (isFinderPattern || shouldFill) {
-          ctx.fillRect(col * moduleSize, row * moduleSize, moduleSize, moduleSize);
-        }
-      }
-    }
-
-    // Add some timing patterns
-    for (let i = 8; i < 17; i++) {
-      if (i % 2 === 0) {
-        ctx.fillRect(i * moduleSize, 6 * moduleSize, moduleSize, moduleSize);
-        ctx.fillRect(6 * moduleSize, i * moduleSize, moduleSize, moduleSize);
-      }
-    }
-
-    return canvas.toDataURL('image/png');
-  };
 
   const formatQRData = (): string => {
     switch (qrType) {
@@ -108,26 +50,41 @@ const QrCodeGenerator: React.FC = () => {
   useEffect(() => {
     if (text.trim()) {
       const qrData = formatQRData();
-      const dataUrl = generateQR(qrData, size, foregroundColor, backgroundColor);
-      setQrDataUrl(dataUrl);
+      // The QRCode component will update automatically
     } else {
-      setQrDataUrl('');
+      // No need to do anything, the component will not render
     }
   }, [text, qrType, size, foregroundColor, backgroundColor]);
 
   const handleDownload = () => {
-    if (!qrDataUrl) {
+    const svg = document.querySelector('svg');
+    if (!svg) {
       messageApi.error('No QR code to download');
       return;
     }
 
-    const link = document.createElement('a');
-    link.download = `qrcode-${Date.now()}.png`;
-    link.href = qrDataUrl;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    messageApi.success('QR code downloaded');
+    const svgData = new XMLSerializer().serializeToString(svg);
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    if (!ctx) {
+      messageApi.error('Could not create canvas');
+      return;
+    }
+    const img = new Image();
+    img.onload = () => {
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+      const pngFile = canvas.toDataURL('image/png');
+      const link = document.createElement('a');
+      link.download = `qrcode-${Date.now()}.png`;
+      link.href = pngFile;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      messageApi.success('QR code downloaded');
+    };
+    img.src = `data:image/svg+xml;base64,${btoa(svgData)}`;
   };
 
   const handleCopy = async () => {
@@ -141,7 +98,6 @@ const QrCodeGenerator: React.FC = () => {
 
   const handleClear = () => {
     setText('');
-    setQrDataUrl('');
     messageApi.info('Cleared');
   };
 
@@ -194,7 +150,6 @@ const QrCodeGenerator: React.FC = () => {
       description="Generate customizable QR codes for text, URLs, emails, phone numbers, and more."
     >
       {contextHolder}
-      <canvas ref={canvasRef} style={{ display: 'none' }} />
       
       <Row gutter={[0, 32]}>
         <Col span={24}>
@@ -323,15 +278,13 @@ const QrCodeGenerator: React.FC = () => {
                 borderRadius: '8px',
                 border: '1px solid var(--border-color)'
               }}>
-                {qrDataUrl ? (
-                  <img 
-                    src={qrDataUrl} 
-                    alt="Generated QR Code"
-                    style={{ 
-                      maxWidth: '100%', 
-                      maxHeight: '400px',
-                      borderRadius: '4px'
-                    }}
+                {text.trim() ? (
+                  <QRCodeSVG
+                    value={formatQRData()}
+                    size={size}
+                    fgColor={foregroundColor}
+                    bgColor={backgroundColor}
+                    level={errorLevel}
                   />
                 ) : (
                   <div style={{ textAlign: 'center', color: 'var(--text-secondary)' }}>
@@ -341,7 +294,7 @@ const QrCodeGenerator: React.FC = () => {
                 )}
               </div>
               
-              {qrDataUrl && (
+              {text.trim() && (
                 <div style={{ marginTop: '16px', textAlign: 'center' }}>
                   <Space>
                     <Button 
@@ -366,6 +319,7 @@ const QrCodeGenerator: React.FC = () => {
               icon={<CopyOutlined />}
               onClick={handleCopy}
               disabled={!text}
+              className="btn"
             >
               Copy Text
             </Button>
@@ -374,7 +328,8 @@ const QrCodeGenerator: React.FC = () => {
               size="large"
               icon={<DownloadOutlined />}
               onClick={handleDownload}
-              disabled={!qrDataUrl}
+              disabled={!text.trim()}
+              className="btn"
             >
               Download QR Code
             </Button>
@@ -384,6 +339,7 @@ const QrCodeGenerator: React.FC = () => {
               icon={<ClearOutlined />}
               onClick={handleClear}
               disabled={!text}
+              className="btn"
             >
               Clear
             </Button>

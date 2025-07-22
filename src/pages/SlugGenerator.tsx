@@ -155,6 +155,7 @@ const SlugGenerator: React.FC = () => {
               icon={<ClearOutlined />}
               onClick={handleClear}
               disabled={!input}
+              className="btn"
             >
               Clear
             </Button>
