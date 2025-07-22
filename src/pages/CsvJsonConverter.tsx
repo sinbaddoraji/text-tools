@@ -29,13 +29,13 @@ const CsvJsonConverter: React.FC = () => {
     if (lines.length === 0) return [];
 
     const result: any[] = [];
-    const headers = hasHeaders ? lines[0].split(delimiter).map(h => h.trim().replace(/^["']|["']$/g, '')) : [];
+    const headers = hasHeaders ? lines[0].split(delimiter).map(h => h.trim().replace(/(^["']|["']$)/g, '')) : [];
     const dataLines = hasHeaders ? lines.slice(1) : lines;
 
     dataLines.forEach((line, index) => {
       if (!line.trim()) return;
       
-      const values = line.split(delimiter).map(v => v.trim().replace(/^["']|["']$/g, ''));
+      const values = line.split(delimiter).map(v => v.trim().replace(/(^["']|["']$)/g, ''));
       
       if (hasHeaders && headers.length > 0) {
         const obj: any = {};

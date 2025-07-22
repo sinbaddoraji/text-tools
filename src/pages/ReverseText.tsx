@@ -86,7 +86,7 @@ const ReverseText: React.FC = () => {
               setReverseType(e.target.value);
               // Re-reverse with new type if there's input
               if (input) {
-                setInput(input); // Trigger re-reverse
+                setInput(current => current); // Trigger re-reverse
                 handleInputChange({ target: { value: input } } as React.ChangeEvent<HTMLTextAreaElement>);
               }
             }}
