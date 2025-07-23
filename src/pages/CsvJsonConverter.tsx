@@ -5,7 +5,6 @@ import {
   CopyOutlined, 
   ClearOutlined,
   DownloadOutlined,
-  UploadOutlined,
   TableOutlined,
   FileTextOutlined
 } from '@ant-design/icons';
@@ -32,7 +31,7 @@ const CsvJsonConverter: React.FC = () => {
     const headers = hasHeaders ? lines[0].split(delimiter).map(h => h.trim().replace(/(^["']|["']$)/g, '')) : [];
     const dataLines = hasHeaders ? lines.slice(1) : lines;
 
-    dataLines.forEach((line, index) => {
+    dataLines.forEach((line) => {
       if (!line.trim()) return;
       
       const values = line.split(delimiter).map(v => v.trim().replace(/(^["']|["']$)/g, ''));

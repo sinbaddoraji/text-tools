@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Input, Row, Col, Button, message, Select, Card, Slider, ColorPicker, Space, Radio } from 'antd';
 import { 
   QrcodeOutlined, 
@@ -49,7 +49,6 @@ const QrCodeGenerator: React.FC = () => {
 
   useEffect(() => {
     if (text.trim()) {
-      const qrData = formatQRData();
       // The QRCode component will update automatically
     } else {
       // No need to do anything, the component will not render

@@ -3,11 +3,7 @@ import { Input, Row, Col, Button, message, Slider, Checkbox, Card, Progress, Spa
 import { 
   ReloadOutlined, 
   CopyOutlined, 
-  ClearOutlined,
-  SecurityScanOutlined,
-  EyeOutlined,
-  EyeInvisibleOutlined
-} from '@ant-design/icons';
+  ClearOutlined} from '@ant-design/icons';
 import PageWrapper from '../components/PageWrapper';
 
 const PasswordGenerator: React.FC = () => {

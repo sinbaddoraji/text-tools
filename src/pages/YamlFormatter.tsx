@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Input, Row, Col, Button, message, Select, Tag, Card, Switch, Space } from 'antd';
+import { Input, Row, Col, Button, message, Select, Tag, Card } from 'antd';
 import { 
   FormatPainterOutlined, 
-  SwapOutlined,
   CopyOutlined, 
   ClearOutlined,
   CheckCircleOutlined,

@@ -9,7 +9,6 @@ import {
 } from '@ant-design/icons';
 import PageWrapper from '../components/PageWrapper';
 
-const { TextArea } = Input;
 const { Option } = Select;
 const { Text } = Typography;
 

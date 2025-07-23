@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input, Row, Col, Button, message, Select, Card, Switch, Space } from 'antd';
+import { Input, Row, Col, Button, message, Select, Card, Switch } from 'antd';
 import { 
   FormatPainterOutlined, 
   CompressOutlined,
@@ -55,12 +55,9 @@ const SqlFormatter: React.FC = () => {
       return formatted;
     }
 
-    const indent = ' '.repeat(indentSize);
     let result = '';
     let currentIndent = 0;
     let inParentheses = 0;
-    let inString = false;
-    let stringChar = '';
 
     const tokens = formatted.split(/(\s+|[(),;]|'[^']*'|"[^"]*")/);
     

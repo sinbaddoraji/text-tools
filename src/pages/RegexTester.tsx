@@ -4,7 +4,6 @@ import {
   PlayCircleOutlined, 
   CopyOutlined, 
   ClearOutlined,
-  InfoCircleOutlined,
   CheckCircleOutlined,
   CloseCircleOutlined
 } from '@ant-design/icons';
@@ -116,7 +115,7 @@ const RegexTester: React.FC = () => {
     let result = '';
     let lastIndex = 0;
     
-    matches.forEach((match, i) => {
+    matches.forEach((match) => {
       result += text.slice(lastIndex, match.index);
       result += `<mark style="background-color: #ffe58f; padding: 2px 4px; border-radius: 3px; font-weight: 600;">${match.match}</mark>`;
       lastIndex = match.index + match.match.length;
